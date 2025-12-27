@@ -1,94 +1,663 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+ <head>
   <meta charset="UTF-8">
-  <title>Vitória Lima | Portfólio em Dados</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- HERO -->
-  <header class="hero">
-    <h1>Vitória Lima</h1>
-    <p class="subtitle">
-      Analista de Dados | Python • Power BI • Machine Learning
-    </p>
-    <p class="tagline">
-      Transformo dados em insights acionáveis e soluções orientadas a negócio.
-    </p>
-  </header>
-
-  <!-- SOBRE -->
-  <section>
-    <h2>Sobre</h2>
-    <p>
-      Você atua com análise de dados focada em tomada de decisão,
-      utilizando Python, SQL e ferramentas de visualização para
-      transformar dados brutos em informações estratégicas.
-    </p>
-    <p>
-      Seu foco está em projetos end-to-end, indo da análise exploratória
-      à entrega do resultado em dashboards interativos ou APIs.
-    </p>
-  </section>
-
-  <!-- PROJETOS -->
-  <section>
-    <h2>Projetos em destaque</h2>
-
-    <div class="project">
-      <h3>Customer Churn Prediction</h3>
-      <p class="project-desc">
-        Projeto de Machine Learning para prever evasão de clientes,
-        com pipeline completo: EDA, feature engineering, treinamento,
-        validação e deploy de modelo via API.
-      </p>
-
-      <ul class="project-tech">
-        <li>Python</li>
-        <li>Pandas</li>
-        <li>Scikit-learn</li>
-        <li>FastAPI</li>
-        <li>Streamlit</li>
-      </ul>
-
-      <a href="https://github.com/seuusuario/churn-project" target="_blank">
-        🔗 Ver projeto no GitHub
-      </a>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Vitória</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-elevated {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card-elevated::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+      transition: left 0.5s;
+    }
+    
+    .card-elevated:hover::before {
+      left: 100%;
+    }
+    
+    .card-elevated:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .section {
+      scroll-margin-top: 90px;
+    }
+    
+    .tech-badge {
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+    
+    .tech-badge:hover {
+      transform: translateY(-2px);
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .category-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .card-elevated:hover .category-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .grid-pattern {
+      background-image: 
+        linear-gradient(rgba(102, 126, 234, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(102, 126, 234, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full" style="background: #0a0e27;">
+  <div id="app" class="w-full h-full overflow-auto"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 glass-effect" style="background: rgba(10, 14, 39, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(102, 126, 234, 0.1);">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+     <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+       <svg class="w-6 h-6" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+       </svg>
+      </div><span id="nav-name" class="text-lg font-bold mono" style="color: #ffffff;">Vitória</span>
+     </div>
+     <div class="flex items-center gap-8"><a class="nav-link font-medium text-sm" onclick="scrollToSection('sobre')" style="color: #94a3b8;">Sobre</a> <a class="nav-link font-medium text-sm" onclick="scrollToSection('habilidades')" style="color: #94a3b8;">Habilidades</a> <a class="nav-link font-medium text-sm" onclick="scrollToSection('projetos')" style="color: #94a3b8;">Projetos</a> <a class="nav-link font-medium text-sm" onclick="scrollToSection('certificacoes')" style="color: #94a3b8;">Certificações</a> <a class="nav-link font-medium text-sm" onclick="scrollToSection('contato')" style="color: #94a3b8;">Contato</a>
+     </div>
     </div>
+   </nav><!-- Hero Section -->
+   <section class="pt-32 pb-24 px-6 relative overflow-hidden grid-pattern">
+    <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 0%, rgba(102, 126, 234, 0.15), transparent 50%);"></div>
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+     <div class="inline-block px-4 py-2 rounded-full mb-6 glass-effect"><span class="text-sm font-semibold mono" style="color: #818cf8;">// Portfolio v2.0</span>
+     </div>
+     <div class="flex justify-center mb-8">
+      <div class="relative">
+       <div class="w-40 h-40 rounded-full overflow-hidden border-4" style="border-color: rgba(102, 126, 234, 0.5); box-shadow: 0 0 40px rgba(102, 126, 234, 0.3);">
+        <svg class="w-full h-full" viewbox="0 0 200 200" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><circle cx="100" cy="80" r="40" fill="rgba(255,255,255,0.9)" /> <path d="M 60 140 Q 100 120 140 140 L 140 200 L 60 200 Z" fill="rgba(255,255,255,0.9)" />
+        </svg>
+       </div>
+       <div class="absolute bottom-2 right-2 w-6 h-6 rounded-full border-4" style="background: #22c55e; border-color: #0a0e27;"></div>
+      </div>
+     </div>
+     <h1 id="hero-name" class="text-6xl font-bold mb-4" style="color: #ffffff;">Vitória</h1>
+     <p id="hero-title" class="text-2xl font-semibold mb-6 gradient-text">Data Scientist &amp; Analytics Engineer</p>
+     <p class="text-lg max-w-2xl mx-auto leading-relaxed" style="color: #94a3b8;">Transformando dados complexos em insights acionáveis através de machine learning, engenharia de dados e visualizações inteligentes</p>
+     <div class="flex justify-center gap-4 mt-10"><a href="#projetos" class="px-6 py-3 rounded-lg font-semibold mono flex items-center gap-2 transition-all hover:scale-105" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+       </svg> Ver Projetos </a> <a href="#contato" class="px-6 py-3 rounded-lg font-semibold mono transition-all hover:scale-105" style="background: rgba(102, 126, 234, 0.1); color: #818cf8; border: 1px solid rgba(102, 126, 234, 0.3);"> Contato </a>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="sobre" class="section py-24 px-6" style="background: #0f1629;">
+    <div class="max-w-4xl mx-auto">
+     <div class="text-center mb-12"><span class="text-sm font-bold mono px-4 py-2 rounded-full" style="background: rgba(102, 126, 234, 0.1); color: #818cf8;">SOBRE</span>
+      <h2 class="text-4xl font-bold mt-4" style="color: #ffffff;">Sobre Mim</h2>
+     </div>
+     <div class="rounded-2xl p-8 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(102, 126, 234, 0.2);">
+      <p class="text-lg leading-relaxed" style="color: #cbd5e1;">Profissional especializada em <span class="font-semibold" style="color: #818cf8;">ciência de dados</span> e <span class="font-semibold" style="color: #818cf8;">engenharia analítica</span>, com experiência em construir pipelines de dados robustos, desenvolver modelos de machine learning e criar dashboards que impulsionam decisões estratégicas. Apaixonada por extrair valor de dados e traduzir análises complexas em recomendações claras para negócios.</p>
+     </div>
+    </div>
+   </section><!-- Skills Section -->
+   <section id="habilidades" class="section py-24 px-6 grid-pattern">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16"><span class="text-sm font-bold mono px-4 py-2 rounded-full" style="background: rgba(102, 126, 234, 0.1); color: #818cf8;">STACK TÉCNICO</span>
+      <h2 class="text-4xl font-bold mt-4" style="color: #ffffff;">Habilidades &amp; Ferramentas</h2>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6"><!-- BI Card -->
+      <div class="card-elevated rounded-2xl p-8 border" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%); border-color: rgba(59, 130, 246, 0.3);">
+       <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6 category-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+        <svg class="w-9 h-9" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-bold mb-3" style="color: #ffffff;">Business Intelligence</h3>
+       <p class="mb-4" style="color: #94a3b8;">Dashboards executivos, visualizações interativas e análise de KPIs</p>
+       <div class="flex flex-wrap gap-2"><span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">Power BI</span> <span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">Tableau</span> <span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">SQL</span> <span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">DAX</span>
+       </div>
+      </div><!-- Data Science Card -->
+      <div class="card-elevated rounded-2xl p-8 border" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(147, 51, 234, 0.05) 100%); border-color: rgba(168, 85, 247, 0.3);">
+       <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6 category-icon" style="background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);">
+        <svg class="w-9 h-9" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-bold mb-3" style="color: #ffffff;">Data Science &amp; ML</h3>
+       <p class="mb-4" style="color: #94a3b8;">Modelagem preditiva, análise estatística e machine learning</p>
+       <div class="flex flex-wrap gap-2"><span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">Python</span> <span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">Scikit-learn</span> <span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">TensorFlow</span> <span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">PyTorch</span>
+       </div>
+      </div><!-- Data Engineering Card -->
+      <div class="card-elevated rounded-2xl p-8 border" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.05) 100%); border-color: rgba(34, 197, 94, 0.3);">
+       <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6 category-icon" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">
+        <svg class="w-9 h-9" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+        </svg>
+       </div>
+       <h3 class="text-xl font-bold mb-3" style="color: #ffffff;">Engenharia de Dados</h3>
+       <p class="mb-4" style="color: #94a3b8;">Pipelines ETL, data lakes e arquiteturas escaláveis</p>
+       <div class="flex flex-wrap gap-2"><span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.2); color: #4ade80;">Spark</span> <span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.2); color: #4ade80;">Airflow</span> <span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.2); color: #4ade80;">AWS</span> <span class="tech-badge px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.2); color: #4ade80;">Docker</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Projects Section -->
+   <section id="projetos" class="section py-24 px-6" style="background: #0f1629;">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-16"><span class="text-sm font-bold mono px-4 py-2 rounded-full" style="background: rgba(102, 126, 234, 0.1); color: #818cf8;">PORTFÓLIO</span>
+      <h2 class="text-4xl font-bold mt-4" style="color: #ffffff;">Projetos em Destaque</h2>
+      <p class="mt-4 text-lg" style="color: #94a3b8;">Soluções end-to-end em data science, analytics e engenharia de dados</p>
+     </div><!-- Business Intelligence Projects -->
+     <div class="mb-20">
+      <div class="flex items-center gap-4 mb-8">
+       <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+        <svg class="w-6 h-6" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+       </div>
+       <div>
+        <h3 id="bi-title" class="text-2xl font-bold" style="color: #ffffff;">Business Intelligence &amp; BI</h3>
+        <p class="text-sm mono" style="color: #64748b;">Dashboards e análises estratégicas</p>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(59, 130, 246, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(59, 130, 246, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#60a5fa" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Dashboard Executivo de Vendas</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Painel interativo com KPIs de vendas, análise de tendências e forecasting para decisões estratégicas em tempo real.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Power BI</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">SQL</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">DAX</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/dashboard-vendas" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4);"> Demo </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(59, 130, 246, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(59, 130, 246, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#60a5fa" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Analytics de Performance Marketing</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Sistema de BI para análise de ROI de campanhas, conversão e otimização de budget em canais digitais.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Tableau</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">GA4</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Python</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/marketing-analytics" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4);"> Visualizar </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(59, 130, 246, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(59, 130, 246, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#60a5fa" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Data Warehouse Corporativo</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">DW integrado com múltiplas fontes para centralização, governança e análise unificada de dados empresariais.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">SQL Server</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">SSIS</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Star Schema</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/data-warehouse" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4);"> GitHub </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(59, 130, 246, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(59, 130, 246, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#60a5fa" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Relatórios Financeiros Automatizados</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Automação de relatórios mensais com análise de variância, projeções e indicadores de saúde financeira.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Power BI</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Excel</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Power Query</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/relatorios-financeiros" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4);"> Demo </a>
+        </div>
+       </div>
+      </div>
+     </div><!-- Data Science Projects -->
+     <div class="mb-20">
+      <div class="flex items-center gap-4 mb-8">
+       <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);">
+        <svg class="w-6 h-6" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+       </div>
+       <div>
+        <h3 id="ds-title" class="text-2xl font-bold" style="color: #ffffff;">Data Science &amp; Machine Learning</h3>
+        <p class="text-sm mono" style="color: #64748b;">Modelos preditivos e análises avançadas</p>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(168, 85, 247, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(168, 85, 247, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#c084fc" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Previsão de Churn de Clientes</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Modelo preditivo para identificar probabilidade de cancelamento, permitindo ações proativas de retenção.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Python</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Scikit-learn</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">XGBoost</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/churn-prediction" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);"> API </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(168, 85, 247, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(168, 85, 247, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#c084fc" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Sistema de Recomendação Personalizado</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Engine de recomendação baseado em collaborative filtering e análise comportamental para e-commerce.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Python</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">TensorFlow</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Neural Nets</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/recommendation-engine" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);"> Demo </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(168, 85, 247, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(168, 85, 247, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#c084fc" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Análise de Sentimento em Mídias Sociais</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">NLP para análise de sentimento em comentários, reviews e menções de marca em tempo real.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Python</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">NLP</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">BERT</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/sentiment-analysis" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);"> API </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(168, 85, 247, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(168, 85, 247, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#c084fc" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Otimização Dinâmica de Preços</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Modelo de precificação inteligente baseado em elasticidade, concorrência e sazonalidade.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Python</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Random Forest</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Time Series</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/dynamic-pricing" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);"> API </a>
+        </div>
+       </div>
+      </div>
+     </div><!-- Data Engineering Projects -->
+     <div class="mb-20">
+      <div class="flex items-center gap-4 mb-8">
+       <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">
+        <svg class="w-6 h-6" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+        </svg>
+       </div>
+       <div>
+        <h3 id="de-title" class="text-2xl font-bold" style="color: #ffffff;">Engenharia de Dados &amp; MLOps</h3>
+        <p class="text-sm mono" style="color: #64748b;">Infraestrutura de dados e deploy de modelos</p>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(34, 197, 94, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(34, 197, 94, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#4ade80" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Pipeline ETL em Tempo Real</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Streaming de dados com Apache Kafka e Spark para ingestão, transformação e carga em tempo real.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">Kafka</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">Spark</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">Python</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/etl-pipeline" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4);"> GitHub </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(34, 197, 94, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(34, 197, 94, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#4ade80" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Data Lake na AWS</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Arquitetura de Data Lake escalável com S3, Glue e Athena para dados estruturados e não estruturados.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">AWS S3</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">Glue</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">Athena</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/aws-data-lake" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4);"> GitHub </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(34, 197, 94, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(34, 197, 94, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#4ade80" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">MLOps: Deploy Automatizado</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">CI/CD para treino, validação e deploy de modelos ML em produção com monitoramento contínuo.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">MLflow</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">Docker</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">K8s</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/mlops-platform" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4);"> GitHub </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(34, 197, 94, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(34, 197, 94, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#4ade80" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Orquestração com Apache Airflow</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Workflows de dados complexos com monitoramento, alertas e recuperação automática de falhas.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">Airflow</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">Python</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">PostgreSQL</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/airflow-orchestration" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4);"> GitHub </a>
+        </div>
+       </div>
+      </div>
+     </div><!-- AI Projects -->
+     <div>
+      <div class="flex items-center gap-4 mb-8">
+       <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+        <svg class="w-6 h-6" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div>
+       <div>
+        <h3 id="ai-title" class="text-2xl font-bold" style="color: #ffffff;">Inteligência Artificial</h3>
+        <p class="text-sm mono" style="color: #64748b;">Soluções com IA generativa e visão computacional</p>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(245, 158, 11, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(245, 158, 11, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#fbbf24" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Chatbot Inteligente com NLU</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Assistente virtual com compreensão de linguagem natural para atendimento ao cliente 24/7.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">GPT-4</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">LangChain</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">Python</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/chatbot-nlu" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);"> Demo </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(245, 158, 11, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(245, 158, 11, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#fbbf24" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Computer Vision para QA</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Detecção de defeitos em linha de produção usando deep learning e processamento de imagens.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">YOLO</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">OpenCV</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">PyTorch</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/computer-vision-qa" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);"> API </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(245, 158, 11, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(245, 158, 11, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#fbbf24" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Gerador de Relatórios com IA</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Sistema que gera narrativas e insights automaticamente usando modelos de linguagem generativos.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">GPT-4</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">Prompt Eng</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">APIs</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/ai-report-generator" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);"> Demo </a>
+        </div>
+       </div>
+       <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(245, 158, 11, 0.2);">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(245, 158, 11, 0.2);">
+          <svg class="w-5 h-5" fill="none" stroke="#fbbf24" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+          </svg>
+         </div>
+         <div class="flex-1">
+          <h4 class="text-lg font-bold mb-2" style="color: #ffffff;">Reconhecimento de Voz Corporativo</h4>
+          <p class="text-sm mb-4" style="color: #94a3b8;">Speech-to-text para transcrição e análise automática de chamadas e reuniões empresariais.</p>
+         </div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-4"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">Whisper AI</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">ASR</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">Python</span>
+        </div>
+        <div class="flex gap-2"><a href="https://github.com/vitoria/speech-recognition" target="_blank" rel="noopener noreferrer" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);"> GitHub </a> <a href="#" class="flex-1 px-3 py-2 rounded-lg text-xs font-semibold mono text-center transition-all hover:scale-105" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);"> API </a>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Certifications Section -->
+   <section id="certificacoes" class="section py-24 px-6 grid-pattern">
+    <div class="max-w-5xl mx-auto">
+     <div class="text-center mb-16"><span class="text-sm font-bold mono px-4 py-2 rounded-full" style="background: rgba(102, 126, 234, 0.1); color: #818cf8;">CERTIFICAÇÕES</span>
+      <h2 class="text-4xl font-bold mt-4" style="color: #ffffff;">Credenciais Profissionais</h2>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(59, 130, 246, 0.2);">
+       <div class="flex items-start gap-4">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+         <svg class="w-7 h-7" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="text-lg font-bold mb-2" style="color: #ffffff;">Microsoft Certified: Power BI Data Analyst</h3>
+         <p class="text-sm mb-3 mono" style="color: #64748b;">Microsoft • 2023</p>
+         <div class="flex gap-2"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">Power BI</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);">DAX</span>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="card-elevated rounded-xl p-6 border" style="background: rgba(15, 22, 41, 0.6); border-color: rgba(245, 158, 11, 0.2);">
+       <div class="flex items-start gap-4">
+        <div class="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+         <svg class="w-7 h-7" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+         </svg>
+        </div>
+        <div>
+         <h3 class="text-lg font-bold mb-2" style="color: #ffffff;">AWS Certified Data Analytics</h3>
+         <p class="text-sm mb-3 mono" style="color: #64748b;">Amazon Web Services • 2023</p>
+         <div class="flex gap-2"><span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">AWS</span> <span class="px-3 py-1 rounded-md text-xs font-medium mono" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">Big Data</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contato" class="section py-24 px-6" style="background: #0f1629;">
+    <div class="max-w-4xl mx-auto text-center"><span class="text-sm font-bold mono px-4 py-2 rounded-full" style="background: rgba(102, 126, 234, 0.1); color: #818cf8;">CONTATO</span>
+     <h2 class="text-4xl font-bold mt-6 mb-4" style="color: #ffffff;">Vamos Conversar</h2>
+     <p class="text-lg mb-10" style="color: #94a3b8;">Interessado em colaborar ou discutir projetos de dados? Entre em contato!</p>
+     <div class="flex flex-wrap justify-center gap-4"><a href="mailto:vitoria@email.com" class="px-8 py-4 rounded-xl font-semibold mono flex items-center gap-3 card-elevated" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+       </svg> Email </a> <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl font-semibold mono flex items-center gap-3 card-elevated" style="background: #0a66c2; color: white; border: none;">
+       <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+       </svg> LinkedIn </a> <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl font-semibold mono flex items-center gap-3 card-elevated" style="background: rgba(255, 255, 255, 0.05); color: white; border: 1px solid rgba(255, 255, 255, 0.1);">
+       <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+       </svg> GitHub </a> <a href="https://duolingo.com" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl font-semibold mono flex items-center gap-3 card-elevated" style="background: #58cc02; color: white; border: none;">
+       <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.949 14.6c0 .771-.543 1.395-1.212 1.395-.67 0-1.213-.624-1.213-1.395v-3.6c0-1.543-1.115-2.795-2.489-2.795-1.375 0-2.49 1.252-2.49 2.795v3.6c0 .771-.543 1.395-1.212 1.395-.67 0-1.213-.624-1.213-1.395V11c0-2.981 2.153-5.4 4.8-5.4 2.647 0 4.8 2.419 4.8 5.4v3.6h.229z" />
+       </svg> Duolingo </a>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-8 px-6" style="background: #0a0e27; border-top: 1px solid rgba(102, 126, 234, 0.1);">
+    <div class="max-w-7xl mx-auto">
+     <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+       <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <svg class="w-6 h-6" fill="none" stroke="white" viewbox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+       </div>
+       <div>
+        <div class="font-bold mono" style="color: #ffffff;">
+         Vitória
+        </div>
+        <div class="text-xs mono" style="color: #64748b;">
+         Data Scientist
+        </div>
+       </div>
+      </div>
+      <p class="text-sm mono" style="color: #64748b;">© 2024 Vitória. Desenvolvido com Python &amp; ☕</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      portfolio_name: 'Vitória',
+      hero_title: 'Data Scientist & Analytics Engineer',
+      bi_section_title: 'Business Intelligence & BI',
+      ds_section_title: 'Data Science & Machine Learning',
+      de_section_title: 'Engenharia de Dados & MLOps',
+      ai_section_title: 'Inteligência Artificial'
+    };
 
-  </section>
+    async function onConfigChange(config) {
+      const navName = document.getElementById('nav-name');
+      const heroName = document.getElementById('hero-name');
+      const heroTitle = document.getElementById('hero-title');
+      const biTitle = document.getElementById('bi-title');
+      const dsTitle = document.getElementById('ds-title');
+      const deTitle = document.getElementById('de-title');
+      const aiTitle = document.getElementById('ai-title');
 
-  <!-- CERTIFICAÇÕES -->
-  <section>
-    <h2>Certificações</h2>
+      if (navName) navName.textContent = config.portfolio_name || defaultConfig.portfolio_name;
+      if (heroName) heroName.textContent = config.portfolio_name || defaultConfig.portfolio_name;
+      if (heroTitle) heroTitle.textContent = config.hero_title || defaultConfig.hero_title;
+      if (biTitle) biTitle.textContent = config.bi_section_title || defaultConfig.bi_section_title;
+      if (dsTitle) dsTitle.textContent = config.ds_section_title || defaultConfig.ds_section_title;
+      if (deTitle) deTitle.textContent = config.de_section_title || defaultConfig.de_section_title;
+      if (aiTitle) aiTitle.textContent = config.ai_section_title || defaultConfig.ai_section_title;
+    }
 
-    <ul class="certifications">
-      <li>
-        <strong>Google Data Analytics Professional Certificate</strong><br>
-        Google • Análise de Dados, SQL, Power BI, Python
-      </li>
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
 
-      <li>
-        <strong>Power BI para Análise de Dados</strong><br>
-        Criação de dashboards, modelagem e storytelling
-      </li>
-
-      <li>
-        <strong>Python para Data Science</strong><br>
-        Pandas, NumPy, visualização e fundamentos de ML
-      </li>
-    </ul>
-  </section>
-
-  <!-- STACK -->
-  <section>
-    <h2>Tecnologias</h2>
-    <ul class="stack">
-      <li>Python</li>
-      <li>SQL</li>
-      <li>Power BI</li>
-      <li>Pandas</li>
-      <li>Scikit-learn</li>
-      <li>FastAPI</li>
-      <li>Streamlit</li>
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['portfolio_name', config.portfolio_name || defaultConfig.portfolio_name],
+          ['hero_title', config.hero_title || defaultConfig.hero_title],
+          ['bi_section_title', config.bi_section_title || defaultConfig.bi_section_title],
+          ['ds_section_title', config.ds_section_title || defaultConfig.ds_section_title],
+          ['de_section_title', config.de_section_title || defaultConfig.de_section_title],
+          ['ai_section_title', config.ai_section_title || defaultConfig.ai_section_title]
+        ])
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b4cad5255f20316',t:'MTc2Njg3ODk3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
